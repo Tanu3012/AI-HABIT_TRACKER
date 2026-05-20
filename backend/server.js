@@ -25,7 +25,7 @@ const corsOptions = {
 }
     // Allow anything explicitly listed in CLIENT_URL (comma-separateed)
     if (allowedOrigins.includes(origin)) return cb(null, true);
-    return cb(new Error(`Origin ${origin} not allowed by CORs`));
+    return cb(new Error(`Origin ${origin} not allowed by CORS`));
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -33,7 +33,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 app.use(express.json({ limit: "1mb" }));
 
 app.get("/api/health", (req, res) => 
@@ -51,7 +50,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 8000;
 
 connectDB().then(()=> {
-    app.listen(PORT, ()=>
-       console.log(`Server running on http://localhost:${PORT}`)
-    );
+    app.listen(PORT, ()=> {
+       console.log(`Server running on PORT: ${PORT}`);
+   });
 });

@@ -161,7 +161,7 @@ const run = async () => {
         await user.save();
         console.log("Saved password:", user.password);
     } else {
-        const user = await User.create({
+            user = await User.create({
             name: NAME,
             email: EMAIL,
             password: PASSWORD,

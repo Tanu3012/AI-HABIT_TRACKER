@@ -61,7 +61,7 @@ export default function HabitForm({ initial, onSubmit, onCancel, submitting }) {
             onChange={set("category")}
           >
             {CATEGORIES.map((c) => (
-              <option key={c}>{c}</option>
+              <option key={c} className="dark:bg-zinc-900 dark:text-white">{c}</option>
             ))}
           </select>
         </div>
@@ -72,8 +72,8 @@ export default function HabitForm({ initial, onSubmit, onCancel, submitting }) {
             value={form.frequency}
             onChange={set("frequency")}
           >
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
+            <option value="daily" className="dark:bg-zinc-900 dark:text-white">Daily</option>
+            <option value="weekly" className="dark:bg-zinc-900 dark:text-white">Weekly</option>
           </select>
         </div>
       </div>
